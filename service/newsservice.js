@@ -2,19 +2,19 @@ const prisma = require('../config/prisma');
 
 async function getAllBooks() {
   try {
-    const books = await prisma.book.findMany();
+    const news = await prisma.news.findMany();
 
-    return books;
+    return news;
   } catch (err) {
     throw err;
   }
 };
 
-async function createBook(book) {
-  console.log(book);
+async function createBook(news) {
+  console.log(news);
   try {
     return await prisma.book.create({
-      data: book
+      data: news
     });
   } catch (err) {
     throw err;
