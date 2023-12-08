@@ -1,4 +1,4 @@
-const newsService = require('../services/newsService');
+const newsService = require('../services/newsservice');
 
 async function getAllNews(req, res)  {
   const news = await newsService.getAllNews();
