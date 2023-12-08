@@ -13,7 +13,7 @@ async function getAllNews() {
 async function createNews(news) {
   console.log(news);
   try {
-    return await prisma.news.create({
+    await prisma.news.create({
       data: news
     });
   } catch (err) {
