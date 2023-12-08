@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model News {
+   id_news    Int @id @default(autoincrement())
+  judul     String
+  sub_judul String
+  link      String
+}
+
+model Categories {
+  id            Int      @id @default(autoincrement())
+  categories    String @unique
+  article       Article[]
+}
+
+model Article {
+  id             Int      @id @default(autoincrement())
+  title          String
+  image          String
+  source         String
+  article        String? @db.Text
+  preview        String
+  categoriesId   Int
+  categories     Categories @relation(fields: [categoriesId], references: [id], onDelete: Cascade)
+  writerId       Int
+  writer         Writer  @relation(fields: [writerId], references: [id], onDelete: Cascade)
+}
+
+model Writer {
+  id             Int     @id @default(autoincrement())
+  name           String
+  image          String
+  about          String?
+  article        Article[]
+}
