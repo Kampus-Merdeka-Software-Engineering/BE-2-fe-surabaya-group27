@@ -1,19 +1,19 @@
-const bookService = require('../service/newsservice');
+const bookService = require('../services/newsService');
 
-async function getAllBooks(req, res)  {
-  const news = await newsservice.getAllBooks();
+async function getAllNews(req, res)  {
+  const news = await newsService.getAllNews();
 
   res.json(news);
 };
 
-async function createBook(req, res) {
+async function createNews(req, res) {
   const news = req.body;
 
-  const creatednews = await newsservice.createBook(news);
-  res.status(201).json(creatednews);
+  const createdNews = await newsService.createNews(news);
+  res.status(201).json(createdNews);
 };
 
 module.exports = {
-  getAllBooks,
-  createBook
+  getAllNews,
+  createNews
 };

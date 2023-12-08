@@ -1,6 +1,6 @@
 const prisma = require('../config/prisma');
 
-async function getAllBooks() {
+async function getAllNews() {
   try {
     const news = await prisma.news.findMany();
 
@@ -10,10 +10,10 @@ async function getAllBooks() {
   }
 };
 
-async function createBook(news) {
+async function createNews(news) {
   console.log(news);
   try {
-    return await prisma.book.create({
+    return await prisma.news.create({
       data: news
     });
   } catch (err) {
@@ -22,6 +22,6 @@ async function createBook(news) {
 }
 
 module.exports = {
-  getAllBooks,
-  createBook
+  getAllNews,
+  createNews
 };
