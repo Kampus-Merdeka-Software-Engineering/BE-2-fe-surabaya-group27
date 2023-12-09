@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const prisma = require('./config/prisma');
 
 const app = express();
 app.use(express.urlencoded({ extended: true })); // Untuk menguraikan data formulir

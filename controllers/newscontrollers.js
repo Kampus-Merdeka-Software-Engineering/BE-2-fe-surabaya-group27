@@ -1,4 +1,5 @@
 const newsService = require('../services/newsService');
+const prisma = require('../config/prisma');
 
 async function getAllNews(req, res)  {
   const news = await newsService.getAllNews();
