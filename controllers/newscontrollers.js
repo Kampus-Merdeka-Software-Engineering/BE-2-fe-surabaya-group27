@@ -7,10 +7,14 @@ async function getAllNews(req, res)  {
 };
 
 async function createNews(req, res) {
-  const news = req.body;
-
-  const createdNews = await newsService.createNews(news);
-  res.status(201).json(createdNews);
+  try {
+    const news = req.body;
+    const createdNews = await newsService.createNews(news);
+    res.status(201).json(createdNews);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 };
 
 module.exports = {
